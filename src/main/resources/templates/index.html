@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora com Histórico</title>
+</head>
+<body>
+    <h1>Calculadora com Histórico </h1>
+    
+    <form method="POST" action="/calcular">
+        <label for="a">a:</label> <input type="text" name="a" id="a"/>
+        <label for="op">Operação: (+,-,/,*)</label> <input type="text" name="op" id="op"/>
+        <label for="b">b:</label> <input type="text" name="b" id="b"/>
+        <input type="submit" value="Calcular"/>
+    </form>
+
+    <h2 th:if="${resultado} != null" th:text="${resultado}"></h2>
+    <ul th:if="${historico} != null" >
+        <li th:each="item: ${historico}" th:text="${item.operacao}"></li>
+
+    </ul>
+
+</body>
+</html>
